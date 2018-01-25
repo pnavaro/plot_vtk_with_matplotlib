@@ -6,6 +6,10 @@ LABEL maintainer="Jupyter Project <jupyter@googlegroups.com>"
 
 USER root
 
+COPY . ${HOME}
+
+RUN chown -R ${NB_USER} ${HOME}
+
 # libav-tools for matplotlib anim
 RUN apt-get update && \
     apt-get install -y --no-install-recommends libav-tools && \
@@ -31,8 +35,6 @@ ENV XDG_CACHE_HOME /home/$NB_USER/.cache/
 RUN MPLBACKEND=Agg python -c "import matplotlib.pyplot" && \
     fix-permissions /home/$NB_USER
 
-COPY . ${HOME}
 
-RUN chown -R ${NB_USER} ${HOME}
 USER $NB_USER
 
