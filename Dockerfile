@@ -21,7 +21,7 @@ USER $NB_USER
 RUN conda install --quiet --yes \
     'matplotlib' \
     'vtk' \
-    'numpy*' && \
+    'numpy' && \
     conda remove --quiet --yes --force qt pyqt && \
     conda clean -tipsy && \
     fix-permissions $CONDA_DIR
