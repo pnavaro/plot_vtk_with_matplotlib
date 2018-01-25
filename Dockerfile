@@ -31,4 +31,8 @@ ENV XDG_CACHE_HOME /home/$NB_USER/.cache/
 RUN MPLBACKEND=Agg python -c "import matplotlib.pyplot" && \
     fix-permissions /home/$NB_USER
 
+COPY . ${HOME}
+
+RUN chown -R ${NB_USER} ${HOME}
 USER $NB_USER
+
