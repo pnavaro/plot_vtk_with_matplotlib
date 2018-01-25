@@ -13,7 +13,7 @@ RUN chown -R ${NB_USER} ${HOME}
 # libav-tools for matplotlib anim
 RUN apt-get update && \
     apt-get install -y --no-install-recommends libav-tools && \
-    apt-get install libgl1-mesa-glx libgl1 && \
+    apt-get install libgl1-mesa-glx libgl1 libgl1-mesa-dev && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
